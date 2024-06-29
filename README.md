@@ -25,8 +25,8 @@ This project is a multi-threaded file downloader written in Python. It supports 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/semeer37/downloader.git
-   cd downloader
+   git clone https://github.com/semeer37/Simple-Downloader.git
+   cd Simple-Downloader
    ```
 
 2. Install the required Python libraries:
