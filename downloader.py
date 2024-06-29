@@ -110,6 +110,7 @@ class Downloader:
 
     def download(self):
         """Manages the downloading process."""
+        print(f"Downloading {self.file_name}")
         self.total_size = self.get_file_size()
         if self.total_size == 0:
             logging.error("Unable to determine file size.")
@@ -122,7 +123,7 @@ class Downloader:
             end = start + self.chunk_size - 1 if i != self.num_chunks - 1 else self.total_size
             self.queue.put((start, end, i))
 
-        self.progress_bar = tqdm(total=self.total_size, unit='B', unit_scale=True, desc=self.file_name)
+        self.progress_bar = tqdm(total=self.total_size, unit='B', unit_scale=True, desc='Downloading ')
 
         threads = []
         for _ in range(self.num_chunks):
