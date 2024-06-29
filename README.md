@@ -15,14 +15,9 @@ This project is a multi-threaded file downloader written in Python. It supports 
 
 - Python 3.7+
 - Required Python libraries:
-  - `os`
-  - `re`
-  - `logging`
   - `requests`
   - `aiohttp`
   - `asyncio`
-  - `threading`
-  - `queue`
   - `tqdm`
   - `typer`
 
@@ -63,60 +58,6 @@ python downloader.py <URL> [OPTIONS]
 ```bash
 python downloader.py https://example.com/largefile.zip --file-name myfile.zip --num-chunks 8 --max-retries 3
 ```
-
-## Functions
-
-### `Downloader`
-
-A class that manages the downloading process.
-
-#### `__init__(self, url: str, file_name: Optional[str] = None, num_chunks: int = 4, max_retries: int = 5, chunk_size: Optional[int] = None)`
-
-Initializes the downloader with the specified parameters.
-
-#### `extract_filename(self) -> str`
-
-Extracts the filename from the URL or Content-Disposition header.
-
-#### `get_file_size(self) -> int`
-
-Fetches the size of the file to be downloaded.
-
-#### `download_chunk(self, session: aiohttp.ClientSession, start: int, end: int, chunk_index: int, retries: int = 0)`
-
-Downloads a specific chunk of the file.
-
-#### `fetch(self, start: int, end: int, chunk_index: int)`
-
-Initiates the download of a chunk.
-
-#### `thread_worker(self)`
-
-Thread worker to download chunks.
-
-#### `merge_chunks(self)`
-
-Merges all the downloaded chunks into the final file.
-
-#### `cleanup(self)`
-
-Cleans up any partial download files.
-
-#### `download(self)`
-
-Manages the downloading process.
-
-### `human_readable_bytes(num: int, suffix: str = 'B') -> str`
-
-Converts bytes to a human-readable format.
-
-### `main(url: str, file_name: Optional[str] = None, num_chunks: int = 4, max_retries: int = 5, chunk_size: Optional[int] = None)`
-
-Main function to initiate the downloader with provided arguments.
-
-## Logging
-
-The script uses Python's built-in `logging` module to log messages. The log level is set to `INFO`, and the format includes the timestamp, log level, and message.
 
 ## License
 
